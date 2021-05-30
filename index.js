@@ -21,7 +21,7 @@ app.set('views', 'views')
 
 app.use(async (req, res, next) => {
   try {
-    const user = await User.findById('5cc1d29dcedab01481e03660')
+    const user = await User.findById('60b3a76c2a5aa1d18885a22e')
     req.user = user
     next()
   } catch (e) {
@@ -49,8 +49,8 @@ async function start() {
     const candidate = await User.findOne()
     if (!candidate) {
       const user = new User({
-        email: 'vladilen@mail.ru',
-        name: 'Vladilen',
+        email: 'voloshynajelena@gmail.com',
+        name: 'Elena',
         cart: {items: []}
       })
       await user.save()
