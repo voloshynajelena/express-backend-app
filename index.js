@@ -7,6 +7,7 @@ const cardRoutes = require('./routes/card')
 const addRoutes = require('./routes/add')
 const ordersRoutes = require('./routes/orders')
 const coursesRoutes = require('./routes/courses')
+const authRoutes = require('./routes/auth')
 const User = require('./models/user')
 
 const app = express()
@@ -22,7 +23,7 @@ app.set('views', 'views')
 
 app.use(async (req, res, next) => {
   try {
-    const user = await User.findById('60b3a76c2a5aa1d18885a22e')
+    const user = await User.findById('5cc1d29dcedab01481e03660')
     req.user = user
     next()
   } catch (e) {
@@ -38,6 +39,7 @@ app.use('/add', addRoutes)
 app.use('/courses', coursesRoutes)
 app.use('/card', cardRoutes)
 app.use('/orders', ordersRoutes)
+app.use('/auth', authRoutes)
 
 const PORT = process.env.PORT || 3000
 
