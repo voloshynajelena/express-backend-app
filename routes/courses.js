@@ -11,7 +11,7 @@ function isOwner(course, req) {
 
 router.get('/', async (req, res) => {
   try {
-    const courses = await Course.find()
+    const courses = await Course.find().lean()
     .populate('userId', 'email name')
     .select('price title img')
 

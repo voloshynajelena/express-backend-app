@@ -5,7 +5,7 @@ const router = Router()
 
 router.get('/', auth, async (req, res) => {
   try {
-    const orders = await Order.find({'user.userId': req.user._id})
+    const orders = await Order.find({'user.userId': req.user._id}).lean()
       .populate('user.userId')
 
     res.render('orders', {
