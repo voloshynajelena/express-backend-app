@@ -11,7 +11,6 @@ router.get('/', auth, async (req, res) => {
       isOrder: true,
       title: 'Заказы',
       orders: orders.map(o => {
-      console.log('----', o);
 
         return {
           ...o,
